@@ -1,0 +1,43 @@
+from random import randint
+
+print("Simalador de dados")
+
+d1 = input("Forneça o tamanho do dado:" )
+while d1.isnumeric()==False or int(d1) <= 0:
+    if d1=="":
+        print("Encerrando programa")
+        exit()
+    if d1.isnumeric()==False:
+        print("Forneça um valor válido!")
+    elif int(d1) <= 0:
+        print("Forneça um valor maior que zero!")
+    d1 = input("Forneça o tamanho do dado:" )
+d2 = input("Forneça a quantidade de dados:" )
+
+while d2.isnumeric()==False or int(d2) <= 0:
+    if d2 == "":
+        d2 = 1
+        break
+    if d2.isnumeric()==False:
+        print("Forneça um valor válido!")
+    elif int(d2) <= 0:
+        print("Forneça um valor maior que zero!")
+    d2 = input("Forneça a quantidade de dados:" )
+
+d1 = int(d1)
+d2 = int(d2)
+
+def lancar_dados():
+    return randint(1, d1)
+
+print("Valores dos lançamentos:")
+
+lista = []
+
+for i in range(d2):
+    val = lancar_dados()
+    lista.insert(i, val)
+    print("Lançamento n.",i+1,"-",lista[i])
+
+print(d2, "dados de", d1, "lados: ")
+print(*lista)
